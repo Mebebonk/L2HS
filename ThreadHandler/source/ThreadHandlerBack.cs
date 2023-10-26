@@ -26,7 +26,7 @@ namespace ThreadHandler
 			}
 		}
 
-		static public void AtomicAction<T>(Action<T> action, T var)
+		static public void AtomicAction<T>(Action<T> action, ref T var)
 		{
 			lock (locker)
 			{
