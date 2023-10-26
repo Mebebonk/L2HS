@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace IncapsulatedObjects
 {
-	internal class FieldLoader
+	public enum Directions
 	{
-
+		Left, Top, Right, Bottom
 	}
 }

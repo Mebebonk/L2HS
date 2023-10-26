@@ -1,4 +1,4 @@
-﻿namespace FieldManager
+﻿namespace IncapsulatedObjects
 {
 	public class FieldAPI
 	{
