@@ -10,14 +10,14 @@ namespace IncapsulatedObjects
 	public class Field : Validatable
 	{
 		public Coordinate[] Walls { get; private set; }
-		public Coordinate[] SpawnableAreas { get; private set; }
+		public Coordinate[] SafeCoordinates { get; private set; }
 
 		public bool AllowTP { get; private set; }
 
 		public Field(Coordinate[] walls, Coordinate[] spawnableAreas, bool allowTP = true)
 		{
 			Walls = walls;
-			SpawnableAreas = spawnableAreas;
+			SafeCoordinates = spawnableAreas;
 			AllowTP = allowTP;
 		}
 
@@ -37,13 +37,13 @@ namespace IncapsulatedObjects
 			}
 
 			AllowTP = allowTP;
-			SpawnableAreas = spawnableCoordinates.ToArray();
+			SafeCoordinates = spawnableCoordinates.ToArray();
 			Walls = walledCoordinates.ToArray();
 		}
 
 		public override bool IsValid()
 		{
-			return (SpawnableAreas.Length > 0);			
+			return (SafeCoordinates.Length > 0);			
 		}
 	}
 }

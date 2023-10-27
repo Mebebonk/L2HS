@@ -12,13 +12,13 @@ namespace IncapsulatedObjects
 		public Snek(Coordinate start, Field field)
 		{
 			var rnd = new Random();
-			SnekBody[1] = field.SpawnableAreas[rnd.Next(field.SpawnableAreas.Length)];
+			SnekBody[1] = field.SafeCoordinates[rnd.Next(field.SafeCoordinates.Length)];
 
 		}
 
 		public override bool IsValid()
 		{
-			return SnekBody.Count > 0;
+			return SnekBody.Count > 2;
 		}
 	}
 }
