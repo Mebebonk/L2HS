@@ -6,7 +6,7 @@ namespace LessTwoHeadSnake
 	{
 		static void Main(string[] args)
 		{
-
+			
 		}
 	}
 }

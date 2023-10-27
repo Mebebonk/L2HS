@@ -23,5 +23,16 @@ namespace IncapsulatedObjects
 		{
 			return SnekBody.Count > 1;
 		}
+
+		public void Move(Directions direction)
+		{
+			Coordinate target = DirectionConvertor.GetCoordinateFromDirection(direction);
+			Coordinate actual = SnekBody[^2] - SnekBody[^1];
+			if (target != actual * -1)
+			{
+				SnekBody.RemoveAt(0);
+				SnekBody.Add(SnekBody[^1] + target);
+			}
+		}
 	}
 }
