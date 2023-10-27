@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IncapsulatedObjects
 {
-	public class Coordinate : IEquatable<Coordinate>
+	public class Coordinate : Validatable, IEquatable<Coordinate>
 	{
 
 		public int X { get; private set; }
@@ -16,6 +16,33 @@ namespace IncapsulatedObjects
 			X = x;
 			Y = y;
 		}
+		public Coordinate[] GetAdjesant(bool full = false)
+		{
+			if (!full)
+			{
+				return new Coordinate[]
+				{
+					new Coordinate(X - 1, Y),
+					new Coordinate(X, Y + 1),
+					new Coordinate(X + 1, Y),
+					new Coordinate(X, Y - 1)
+				};
+			}
+			return new Coordinate[]
+			{
+				new Coordinate(X - 1, Y),
+				new Coordinate(X - 1, Y + 1),
+				new Coordinate(X, Y + 1),
+				new Coordinate(X + 1, Y + 1),
+				new Coordinate(X + 1, Y),
+				new Coordinate(X + 1, Y - 1),
+				new Coordinate(X, Y - 1),
+				new Coordinate(X + 1, Y - 1)
+			};
+
+
+		}
+
 		public override bool Equals(object? obj) => this.Equals(obj as Coordinate);
 		public override int GetHashCode() => (X, Y).GetHashCode();
 
@@ -23,16 +50,18 @@ namespace IncapsulatedObjects
 		{
 			if (other is null) return false;
 			if (ReferenceEquals(this, other)) return true;
-			if (this.GetType() !=  other.GetType()) return false;
+			if (this.GetType() != other.GetType()) return false;
 			return (X == other.X && Y == other.Y);
 		}
 
-		public static bool operator ==(Coordinate a, Coordinate b)
+		public override bool IsValid()
 		{
-			return a.X == b.X && a.Y == b.Y;
+			return X > 0 && X < RuleSet.RuleSet.maxWidth && Y > 0 && Y < RuleSet.RuleSet.maxHight;
 		}
 
+		public static bool operator ==(Coordinate a, Coordinate b) { return a.X == b.X && a.Y == b.Y; }
+
 		public static bool operator !=(Coordinate a, Coordinate b) { return !(a == b); }
-		
+
 	}
 }

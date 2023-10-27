@@ -1,35 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace IncapsulatedObjects
 {
-	public class Field
+	public class Field : Validatable
 	{
 		public Coordinate[] Walls { get; private set; }
 		public Coordinate[] SpawnableAreas { get; private set; }
 
-		public Field(Coordinate[] walls)
+		public bool AllowTP { get; private set; }
+
+		public Field(Coordinate[] walls, Coordinate[] spawnableAreas, bool allowTP = true)
 		{
 			Walls = walls;
-			List<Coordinate> list = new();
-
-			foreach (Coordinate c in Walls)
-			{
-				AppendOnValid(new Coordinate(c.X - 1, c.Y), ref list);
-				AppendOnValid(new Coordinate(c.X, c.Y + 1), ref list);
-				AppendOnValid(new Coordinate(c.X + 1, c.Y), ref list);
-				AppendOnValid(new Coordinate(c.X, c.Y - 1), ref list);				
-			}
-
-			SpawnableAreas = list.ToArray();
+			SpawnableAreas = spawnableAreas;
+			AllowTP = allowTP;
 		}
 
-		static private void AppendOnValid(Coordinate c, ref List<Coordinate> coordinates)
+		public Field(Coordinate[] walls, bool allowTP = true)
 		{
-			if (Validator.ValidationTest(c)) coordinates.Add(c);
+			List<Coordinate> spawnableCoordinates = new();
+			List<Coordinate> walledCoordinates = new();
+
+			foreach (Coordinate c in walls)
+			{
+				c.ActionOnValid(() => walledCoordinates.Add(c));
+				foreach (Coordinate coor in c.GetAdjesant())
+				{
+					coor.ActionOnValid(() => spawnableCoordinates.Add(coor));
+				}
+
+			}
+
+			AllowTP = allowTP;
+			SpawnableAreas = spawnableCoordinates.ToArray();
+			Walls = walledCoordinates.ToArray();
+		}
+
+		public override bool IsValid()
+		{
+			if (Walls.Length > 0 && SpawnableAreas.Length > 0) return true;
+			return false;
 		}
 	}
 }
