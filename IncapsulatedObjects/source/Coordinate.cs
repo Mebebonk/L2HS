@@ -18,28 +18,38 @@ namespace IncapsulatedObjects
 		}
 		public Coordinate[] GetAdjesant(bool full = false)
 		{
-			if (!full)
+			List<Coordinate> adj = new();
+
+			Coordinate[] shortArray = new Coordinate[]
 			{
-				return new Coordinate[]
-				{
 					new Coordinate(X - 1, Y),
 					new Coordinate(X, Y + 1),
 					new Coordinate(X + 1, Y),
 					new Coordinate(X, Y - 1)
-				};
-			}
-			return new Coordinate[]
-			{
-				new Coordinate(X - 1, Y),
-				new Coordinate(X - 1, Y + 1),
-				new Coordinate(X, Y + 1),
-				new Coordinate(X + 1, Y + 1),
-				new Coordinate(X + 1, Y),
-				new Coordinate(X + 1, Y - 1),
-				new Coordinate(X, Y - 1),
-				new Coordinate(X + 1, Y - 1)
 			};
 
+			foreach (Coordinate coord in shortArray)
+			{
+				coord.ActionOnValid(() => adj.Add(coord));
+			}
+
+			if (full)
+			{
+				Coordinate[] longArray = new Coordinate[]
+				{
+				new Coordinate(X - 1, Y + 1),
+				new Coordinate(X + 1, Y + 1),
+				new Coordinate(X + 1, Y - 1),
+				new Coordinate(X + 1, Y - 1)
+				};
+
+				foreach (Coordinate coord in longArray)
+				{
+					coord.ActionOnValid(() => adj.Add(coord));
+				}
+			}
+
+			return adj.ToArray();
 
 		}
 
@@ -54,10 +64,7 @@ namespace IncapsulatedObjects
 			return (X == other.X && Y == other.Y);
 		}
 
-		public override bool IsValid()
-		{
-			return X > 0 && X < RuleSet.RuleSet.maxWidth && Y > 0 && Y < RuleSet.RuleSet.maxHight;
-		}
+		public override bool IsValid() { return X > 0 && X < RuleSet.RuleSet.maxWidth && Y > 0 && Y < RuleSet.RuleSet.maxHight; }
 
 		public static bool operator ==(Coordinate a, Coordinate b) { return a.X == b.X && a.Y == b.Y; }
 

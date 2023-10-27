@@ -43,8 +43,7 @@ namespace IncapsulatedObjects
 
 		public override bool IsValid()
 		{
-			if (Walls.Length > 0 && SpawnableAreas.Length > 0) return true;
-			return false;
+			return (SpawnableAreas.Length > 0);			
 		}
 	}
 }
