@@ -64,7 +64,7 @@ namespace IncapsulatedObjects
 			return (X == other.X && Y == other.Y);
 		}
 
-		public override bool IsValid() { return X > 0 && X < RuleSet.RuleSet.maxWidth && Y > 0 && Y < RuleSet.RuleSet.maxHight; }
+		public override bool IsValid() { return X >= 0 && X < RuleSet.RuleSet.maxWidth && Y >= 0 && Y < RuleSet.RuleSet.maxHight; }
 
 		public static bool operator ==(Coordinate a, Coordinate b) { return a.X == b.X && a.Y == b.Y; }
 
