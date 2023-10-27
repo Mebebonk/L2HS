@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 
 namespace IncapsulatedObjects
 {
-	internal class Snek : Validatable
+	public class Snek : Validatable
 	{
 		public List<Coordinate> SnekBody { get; private set; }
-		public Snek(Coordinate start, Field field)
+		public Snek(Coordinate start)
 		{
 			var rnd = new Random();
-			SnekBody[1] = field.SafeCoordinates[rnd.Next(field.SafeCoordinates.Length)];
-
+			SnekBody = new(2)
+			{
+				start.GetAdjesant()[rnd.Next(start.GetAdjesant().Length)],
+				start
+			};
 		}
 
 		public override bool IsValid()
 		{
-			return SnekBody.Count > 2;
+			return SnekBody.Count > 1;
 		}
 	}
 }
