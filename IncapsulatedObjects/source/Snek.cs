@@ -10,7 +10,7 @@ namespace IncapsulatedObjects
 	{
 		public List<Coordinate> SnekBody { get; private set; }
 
-		private bool QuedFood = false;
+		private bool quedFood = false;
 		public Snek(Coordinate start)
 		{
 			var rnd = new Random();
@@ -32,14 +32,14 @@ namespace IncapsulatedObjects
 			Coordinate actual = SnekBody[^2] - SnekBody[^1];
 			if (target != actual * -1)
 			{
-				if(!QuedFood) SnekBody.RemoveAt(0); QuedFood = false;
+				if(!quedFood) SnekBody.RemoveAt(0); quedFood = false;
 				SnekBody.Add(SnekBody[^1] + target);
 			}
 		}
 
 		public void QueFood()
 		{
-			QuedFood = true;
+			quedFood = true;
 		}
 	}
 }
