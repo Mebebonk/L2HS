@@ -12,5 +12,10 @@ namespace GameMaster
 		{
 			GameMaster = new(field, ref inputs, ref ui, seed);
 		}
+
+		public void StartGame()
+		{
+			GameMaster.LaunchGame();
+		}
 	}
 }
