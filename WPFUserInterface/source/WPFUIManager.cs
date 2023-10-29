@@ -8,11 +8,19 @@ using UserInterfaceAPI;
 
 namespace WPFUserInterface
 {
-	internal class WPFUIManager : UIAPIBase
+	public class WPFUIAPI : UIAPIBase
 	{
-		public override void Draw(Coordinate[] walls, Snek snek, Food food)
+		private App ui;
+
+		public override void CreateUI(Field field)
 		{
-			throw new NotImplementedException();
+			ui = new App(field);
+			ui.CreateUI();
+		}
+
+		public override void Draw(Snek snek, Food food)
+		{
+			ui.Draw(snek, food);
 		}
 
 		protected override void DrawEndGame()

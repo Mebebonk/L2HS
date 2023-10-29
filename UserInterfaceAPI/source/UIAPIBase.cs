@@ -4,9 +4,9 @@ namespace UserInterfaceAPI
 {
 	abstract public class UIAPIBase
 	{
-		abstract public void CreateUI();
+		abstract public void CreateUI(Field field);
 
-		abstract public void Draw(Coordinate[] walls, Snek snek, Food food);
+		abstract public void Draw(Snek snek, Food food);
 
 		public void RollCredits(int score = -1)
 		{

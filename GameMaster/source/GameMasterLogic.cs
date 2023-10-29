@@ -94,7 +94,7 @@ namespace GameMaster
 
 		private void DrawGame()
 		{
-			ui.Draw(Field.Walls, Snek, food!);
+			ui.Draw(Snek, food!);
 		}
 
 		private void EndGame()

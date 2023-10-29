@@ -13,16 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFUI
+namespace WPFUserInterface
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class WPFUI : Window
 	{
-		
-		public MainWindow()
-		{		
+		public WPFUI()
+		{
 			InitializeComponent();
 		}
 	}
