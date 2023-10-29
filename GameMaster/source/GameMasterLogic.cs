@@ -11,10 +11,11 @@ namespace GameMaster
 {
 	internal class GameMasterLogic
 	{
-		public Field Field { get; private set; }
-		public Snek Snek { get; private set; }
+		private readonly Field Field;
+		private readonly Snek Snek;
 		private Food? food;
 		private bool isGameRunning = false;
+		// Thread gameThread = new(); TODO
 
 		private readonly Random random;
 		private readonly InputHandlerBase inputHandler;
@@ -94,6 +95,7 @@ namespace GameMaster
 
 		private void EndGame()
 		{
+			isGameRunning = false;
 			ui.RollCredits();
 		}
 
