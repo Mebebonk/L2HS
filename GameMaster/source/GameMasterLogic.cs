@@ -59,7 +59,22 @@ namespace GameMaster
 
 			Snek.Move(inputHandler.GetCurrentDiredction());
 			if (Snek.SnekBody.Contains(food!.Location)) { Snek.QueFood(); ResupplyFood(); }
-			if (Field.Walls.Contains(Snek.SnekBody[^1])) { ui.RollCredits(); return; }
+
+			if (Field.Walls.Contains(Snek.SnekBody[^1]) || Snek.SnekBody.FindAll(delegate (Coordinate c) { return c == Snek.SnekBody[^1]; }).Count > 1)
+			{
+				EndGame(); return;
+			}
+			if (!Snek.SnekBody[^1].IsValid())
+			{
+				if (!Field.AllowTP)
+				{
+					EndGame(); return;
+				}
+				else
+				{
+					Snek.TeleportHead();
+				}
+			}
 			DrawGame();
 		}
 
@@ -75,6 +90,11 @@ namespace GameMaster
 		private void DrawGame()
 		{
 			ui.Draw(Field.Walls, Snek, food!);
+		}
+
+		private void EndGame()
+		{
+			ui.RollCredits();
 		}
 
 	}

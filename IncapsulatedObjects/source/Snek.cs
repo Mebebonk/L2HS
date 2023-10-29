@@ -36,6 +36,12 @@ namespace IncapsulatedObjects
 				quedFood = false;
 				SnekBody.Add(SnekBody[^1] + target);
 			}
+
+		}
+
+		public void TeleportHead()
+		{
+			SnekBody[^1] = new Coordinate(RuleSet.RuleSet.maxWidth, RuleSet.RuleSet.maxHight) - (SnekBody[^1].GetAdjesant()[0] - SnekBody[^1]) * SnekBody[^2];
 		}
 
 		public void QueFood()
