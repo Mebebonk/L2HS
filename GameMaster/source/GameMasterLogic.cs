@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThreadHandler;
 using UserInterfaceAPI;
 
 namespace GameMaster
@@ -15,7 +16,8 @@ namespace GameMaster
 		private readonly Snek Snek;
 		private Food? food;
 		private bool isGameRunning = false;
-		// Thread gameThread = new(); TODO
+		Thread? gameThread;
+		private readonly ThreadHandlerAPI threadHandler;
 
 		private readonly Random random;
 		private readonly InputHandlerBase inputHandler;
@@ -30,6 +32,7 @@ namespace GameMaster
 			Snek = new(Field.SafeCoordinates[random.Next(Field.SafeCoordinates.Length)]);
 			inputHandler = inputs;
 			ui = uIAPI;
+			threadHandler = new();
 
 			foreach (Coordinate snekPart in Snek.SnekBody)
 			{
@@ -42,21 +45,22 @@ namespace GameMaster
 		public void LaunchGame()
 		{
 			isGameRunning = true;
-			DrawGame();
-			GameLoop();
+			gameThread = new(GameLoop);
+			DrawGame();			
 		}
 
 		private void GameLoop()
 		{
 			while (isGameRunning)
 			{
-				ThreadHandler.ThreadHandlerAPI.ExecLocked(GamePattern);
+				Thread.Sleep(RuleSet.RuleSet.moveTime);
+
+				threadHandler.ExecLocked(GamePattern);
 			}
 		}
 
 		private void GamePattern()
 		{
-			Thread.Sleep(RuleSet.RuleSet.moveTime);
 
 			Snek.Move(inputHandler.GetCurrentDiredction());
 			if (Snek.SnekBody.Contains(food!.Location)) { Snek.QueFood(); ResupplyFood(); }

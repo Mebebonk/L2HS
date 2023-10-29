@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace ThreadHandler
 {
-	static internal class ThreadHandlerBack
+	internal class ThreadHandlerBack
 	{
-		static readonly object locker = new();
+		readonly object locker;
 
-		static public void AtomicAction(Action action)
+		public ThreadHandlerBack() 
+		{
+			locker = new();
+		}
+
+		public void AtomicAction(Action action)
 		{
 			lock (locker)
 			{
@@ -18,7 +23,7 @@ namespace ThreadHandler
 			}
 		}
 
-		static public void AtomicAction<T>(Func<T, T> action, ref T var)
+		public void AtomicAction<T>(Func<T, T> action, ref T var)
 		{
 			lock (locker)
 			{
@@ -26,7 +31,7 @@ namespace ThreadHandler
 			}
 		}
 
-		static public void AtomicAction<T>(Action<T> action, ref T var)
+		public void AtomicAction<T>(Action<T> action, T var)
 		{
 			lock (locker)
 			{

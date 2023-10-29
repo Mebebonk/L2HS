@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RuleSet", "RuleSet\RuleSet.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncapsulatedObjects", "IncapsulatedObjects\IncapsulatedObjects.csproj", "{B12670FE-8A28-46F0-BC56-FDCA80F7D00E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMaster", "GameMaster\GameMaster.csproj", "{FC04F132-424E-4028-9DF1-F940E9F1D6D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMaster", "GameMaster\GameMaster.csproj", "{FC04F132-424E-4028-9DF1-F940E9F1D6D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputHandler", "InputHandler\InputHandler.csproj", "{2A4795C9-C350-4570-A450-561371E263DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InputHandler", "InputHandler\InputHandler.csproj", "{2A4795C9-C350-4570-A450-561371E263DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterfaceAPI", "UserInterfaceAPI\UserInterfaceAPI.csproj", "{B5113D3B-2574-44E6-8E57-A7A28B9410BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserInterfaceAPI", "UserInterfaceAPI\UserInterfaceAPI.csproj", "{B5113D3B-2574-44E6-8E57-A7A28B9410BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUserInterface", "WPFUserInterface\WPFUserInterface.csproj", "{48F167E5-FF92-4744-B169-1B41F843A123}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{B5113D3B-2574-44E6-8E57-A7A28B9410BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5113D3B-2574-44E6-8E57-A7A28B9410BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5113D3B-2574-44E6-8E57-A7A28B9410BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48F167E5-FF92-4744-B169-1B41F843A123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F167E5-FF92-4744-B169-1B41F843A123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F167E5-FF92-4744-B169-1B41F843A123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F167E5-FF92-4744-B169-1B41F843A123}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
