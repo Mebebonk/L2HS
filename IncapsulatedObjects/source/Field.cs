@@ -15,6 +15,7 @@ namespace IncapsulatedObjects
 		[JsonIgnore]
 		public Coordinate[] SafeCoordinates { get; private set; }
 
+
 		public bool AllowTP { get; private set; }
 
 		public Field(Coordinate[] walls, Coordinate[] spawnableAreas, bool allowTP = true)
@@ -24,10 +25,11 @@ namespace IncapsulatedObjects
 			AllowTP = allowTP;
 		}
 
+		[JsonConstructor]
 		public Field(Coordinate[] walls, bool allowTP = true)
 		{
 			List<Coordinate> spawnableCoordinates = new();
-			for(int x = 0; RuleSet.RuleSet.maxWidth > x; x++)
+			for (int x = 0; RuleSet.RuleSet.maxWidth > x; x++)
 			{
 				for (int y = 0; RuleSet.RuleSet.maxHight > y; y++)
 				{
@@ -57,7 +59,7 @@ namespace IncapsulatedObjects
 
 		public override bool IsValid()
 		{
-			return (SafeCoordinates.Length > 0);			
+			return (SafeCoordinates.Length > 0);
 		}
 	}
 }

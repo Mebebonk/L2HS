@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IncapsulatedObjects\IncapsulatedObjects.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L2HS", "L2HS\L2HS.csproj", "{4C31CC14-8504-41E4-997B-C8565A85F0D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L2HS", "L2HS\L2HS.csproj", "{4C31CC14-8504-41E4-997B-C8565A85F0D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadHandler", "ThreadHandler\ThreadHandler.csproj", "{F7C8F5DB-A723-4E75-970B-908F330D8694}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadHandler", "ThreadHandler\ThreadHandler.csproj", "{F7C8F5DB-A723-4E75-970B-908F330D8694}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldManager", "FieldManager\FieldManager.csproj", "{1E7B3EA0-D185-4549-B5F0-CDC94643170B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FieldManager", "FieldManager\FieldManager.csproj", "{1E7B3EA0-D185-4549-B5F0-CDC94643170B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleSet", "RuleSet\RuleSet.csproj", "{B49C8368-5B74-42D8-90CC-0572B62A5928}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RuleSet", "RuleSet\RuleSet.csproj", "{B49C8368-5B74-42D8-90CC-0572B62A5928}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncapsulatedObjects", "IncapsulatedObjects\IncapsulatedObjects.csproj", "{B12670FE-8A28-46F0-BC56-FDCA80F7D00E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncapsulatedObjects", "IncapsulatedObjects\IncapsulatedObjects.csproj", "{B12670FE-8A28-46F0-BC56-FDCA80F7D00E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMaster", "GameMaster\GameMaster.csproj", "{FC04F132-424E-4028-9DF1-F940E9F1D6D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputHandler", "InputHandler\InputHandler.csproj", "{2A4795C9-C350-4570-A450-561371E263DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterfaceAPI", "UserInterfaceAPI\UserInterfaceAPI.csproj", "{B5113D3B-2574-44E6-8E57-A7A28B9410BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{B12670FE-8A28-46F0-BC56-FDCA80F7D00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B12670FE-8A28-46F0-BC56-FDCA80F7D00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B12670FE-8A28-46F0-BC56-FDCA80F7D00E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC04F132-424E-4028-9DF1-F940E9F1D6D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC04F132-424E-4028-9DF1-F940E9F1D6D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC04F132-424E-4028-9DF1-F940E9F1D6D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC04F132-424E-4028-9DF1-F940E9F1D6D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4795C9-C350-4570-A450-561371E263DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4795C9-C350-4570-A450-561371E263DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4795C9-C350-4570-A450-561371E263DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4795C9-C350-4570-A450-561371E263DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5113D3B-2574-44E6-8E57-A7A28B9410BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5113D3B-2574-44E6-8E57-A7A28B9410BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5113D3B-2574-44E6-8E57-A7A28B9410BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5113D3B-2574-44E6-8E57-A7A28B9410BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

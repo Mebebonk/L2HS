@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FieldManager\FieldManager.csproj" />
     <ProjectReference Include="..\IncapsulatedObjects\IncapsulatedObjects.csproj" />
     <ProjectReference Include="..\ThreadHandler\ThreadHandler.csproj" />
   </ItemGroup>

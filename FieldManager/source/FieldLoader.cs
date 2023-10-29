@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace IncapsulatedObjects
 {
-	internal class FieldLoader
+	static public class FieldLoader
 	{
+		static public Field? LoadField(string fileName)
+		{					
+			using FileStream file = File.OpenRead($"{fileName}.json");
+			using StreamReader reader = new(file);
 
+			return JsonSerializer.Deserialize<Field>(file);
+		}
 	}
 }
