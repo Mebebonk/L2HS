@@ -32,7 +32,8 @@ namespace IncapsulatedObjects
 			Coordinate actual = SnekBody[^2] - SnekBody[^1];
 			if (target != actual * -1)
 			{
-				if(!quedFood) SnekBody.RemoveAt(0); quedFood = false;
+				if (!quedFood) SnekBody.RemoveAt(0);
+				quedFood = false;
 				SnekBody.Add(SnekBody[^1] + target);
 			}
 		}
