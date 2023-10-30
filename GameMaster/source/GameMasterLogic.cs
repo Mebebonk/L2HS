@@ -55,8 +55,7 @@ namespace GameMaster
 			while (isGameRunning)
 			{
 				Thread.Sleep(RuleSet.RuleSet.moveTime);
-
-				// threadHandler.ExecLocked(GamePattern);
+								
 				GamePattern();
 			}			
 		}
