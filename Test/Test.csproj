@@ -16,7 +16,6 @@
     <ProjectReference Include="..\IncapsulatedObjects\IncapsulatedObjects.csproj" />
     <ProjectReference Include="..\InputHandler\InputHandler.csproj" />
     <ProjectReference Include="..\L2HS\L2HS.csproj" />
-    <ProjectReference Include="..\NW\NW.csproj" />
     <ProjectReference Include="..\RuleSet\RuleSet.csproj" />
     <ProjectReference Include="..\ThreadHandler\ThreadHandler.csproj" />
     <ProjectReference Include="..\UserInterfaceAPI\UserInterfaceAPI.csproj" />

@@ -21,9 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserInterfaceAPI", "UserInt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFUserInterface", "WPFUserInterface\WPFUserInterface.csproj", "{48F167E5-FF92-4744-B169-1B41F843A123}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{6A4A92AC-6DF4-4957-B4A4-011426A5202D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NW", "NW\NW.csproj", "{2C6DA7EC-EFA5-4BE9-BA43-A37F935A3CF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{6A4A92AC-6DF4-4957-B4A4-011426A5202D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,10 +69,6 @@ Global
 		{6A4A92AC-6DF4-4957-B4A4-011426A5202D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A4A92AC-6DF4-4957-B4A4-011426A5202D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A4A92AC-6DF4-4957-B4A4-011426A5202D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C6DA7EC-EFA5-4BE9-BA43-A37F935A3CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C6DA7EC-EFA5-4BE9-BA43-A37F935A3CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C6DA7EC-EFA5-4BE9-BA43-A37F935A3CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C6DA7EC-EFA5-4BE9-BA43-A37F935A3CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
