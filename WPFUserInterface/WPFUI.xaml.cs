@@ -21,11 +21,15 @@ namespace WPFUserInterface
 	/// </summary>
 	public partial class WPFUI : Window
 	{
+		private Key[] keys = { Key.Left, Key.Right, Key.Up, Key.Down };	
+	
+
 		private readonly Action<Directions> callback;
 		public WPFUI(Action<Directions> callback)
 		{
 			InitializeComponent();
 			this.callback = callback;
+			inputGrid.Focus();
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,6 +50,22 @@ namespace WPFUserInterface
 		private void Button_Click_3(object sender, RoutedEventArgs e)
 		{
 			callback(Directions.Right);
+		}
+
+		private void Grid_KeyDown(object sender, KeyEventArgs e)
+		{
+
+			if (sender is Grid source && keys.Contains(e.Key))
+			{
+				callback(e.Key switch
+				{
+					Key.Left => Directions.Left,
+					Key.Right => Directions.Right,
+					Key.Up => Directions.Top,
+					Key.Down => Directions.Bottom,
+					_ => throw new Exception("no.")
+				});
+			}
 		}
 	}
 }

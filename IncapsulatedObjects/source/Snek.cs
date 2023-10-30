@@ -34,7 +34,7 @@ namespace IncapsulatedObjects
 			Coordinate target = DirectionConvertor.GetCoordinateFromDirection(direction);
 			if (front * -1 != target) { this.direction = direction; }
 
-			if (!quedFood) SnekBody.RemoveAt(0);
+			if (!quedFood) { SnekBody.RemoveAt(0); }
 			quedFood = false;
 			SnekBody.Add(SnekBody[^1] - DirectionConvertor.GetCoordinateFromDirection(this.direction));
 

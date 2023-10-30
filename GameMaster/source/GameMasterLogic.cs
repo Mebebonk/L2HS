@@ -24,7 +24,7 @@ namespace GameMaster
 		private readonly UIAPIBase ui;
 
 
-		public GameMasterLogic(Field field, ref IInputHandlerBase inputs, ref UIAPIBase uIAPI, int seed = 0)
+		public GameMasterLogic(Field field, IInputHandlerBase inputs, UIAPIBase uIAPI, int seed = 0)
 		{
 
 			Field = field;
@@ -56,7 +56,8 @@ namespace GameMaster
 			{
 				Thread.Sleep(RuleSet.RuleSet.moveTime);
 
-				threadHandler.ExecLocked(GamePattern);
+				// threadHandler.ExecLocked(GamePattern);
+				GamePattern();
 			}			
 		}
 

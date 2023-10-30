@@ -39,14 +39,17 @@ namespace WPFUserInterface
 
 		public void SetCurrentDirection(Directions direction)
 		{
+
 			this.direction = direction;
+
+
 		}
 
 		protected override void DrawEndGame()
 		{
 			throw new NotImplementedException();
 		}
-		 
+
 		protected override void DrawScore(int score)
 		{
 			throw new NotImplementedException();

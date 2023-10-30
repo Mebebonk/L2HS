@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using WPFUserInterface.Properties;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace WPFUserInterface
 {
@@ -32,14 +33,16 @@ namespace WPFUserInterface
 			Coordinate = new(x, y);
 			grid.Children.Add(TileVisual);
 			Grid.SetColumn(TileVisual, x);
-			Grid.SetRow(TileVisual, y);			
+			Grid.SetRow(TileVisual, y);
 			InitStyles();
 			SetStyle(style);
+
+
 
 		}
 		public void SetStyle(TileStyles style)
 		{
-			
+
 			TileVisual.Style = style switch
 			{
 				TileStyles.None => defaultStyle,
