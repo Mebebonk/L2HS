@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,7 +77,5 @@ namespace IncapsulatedObjects
 
 		public static Coordinate operator *(Coordinate a, int b) { return new Coordinate(a.X * b, a.Y * b); }
 		public static Coordinate operator *(Coordinate a, Coordinate b) { return new Coordinate(a.X * b.X, a.Y * b.Y); }
-
-
 	}
 }

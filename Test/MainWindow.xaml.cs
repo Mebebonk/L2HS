@@ -28,7 +28,7 @@ namespace Test
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{		
 			WPFUserInterface.WPFUIAPI UI = new();
-			IncapsulatedObjects.Field field = new(new IncapsulatedObjects.Coordinate[0]);
+			IncapsulatedObjects.Field field = new(new IncapsulatedObjects.Coordinate[] { new (1, 0), new(2,0) });
 			UI.SetOwner(this);			
 			var input = UI as InputHandler.IInputHandlerBase;
 			var userInterface = UI as UserInterfaceAPI.UIAPIBase;
