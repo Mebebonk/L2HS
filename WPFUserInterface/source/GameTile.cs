@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Controls;
 using WPFUserInterface.Properties;
+using System.Threading;
 
 namespace WPFUserInterface
 {
@@ -19,23 +20,26 @@ namespace WPFUserInterface
 		private Style defaultStyle, wallStyle, snekStyle, foodStyle;
 
 
-		public GameTile(Grid grid, int x, int y, TileStyles style = TileStyles.None, int size = 10)
+		public GameTile(Grid grid, int x, int y, TileStyles style = TileStyles.None, int size = 20)
 		{
 			TileVisual = new Border
 			{
 				Width = size,
-				Height = size
+				Height = size,
+				Focusable = false
 			};
 
+			Coordinate = new(x, y);
 			grid.Children.Add(TileVisual);
 			Grid.SetColumn(TileVisual, x);
-			Grid.SetRow(TileVisual, y);
+			Grid.SetRow(TileVisual, y);			
 			InitStyles();
 			SetStyle(style);
 
 		}
 		public void SetStyle(TileStyles style)
 		{
+			
 			TileVisual.Style = style switch
 			{
 				TileStyles.None => defaultStyle,

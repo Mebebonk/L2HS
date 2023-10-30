@@ -20,11 +20,11 @@ namespace GameMaster
 		private readonly ThreadHandlerAPI threadHandler;
 
 		private readonly Random random;
-		private readonly InputHandlerBase inputHandler;
+		private readonly IInputHandlerBase inputHandler;
 		private readonly UIAPIBase ui;
 
 
-		public GameMasterLogic(Field field, ref InputHandlerBase inputs, ref UIAPIBase uIAPI, int seed = 0)
+		public GameMasterLogic(Field field, ref IInputHandlerBase inputs, ref UIAPIBase uIAPI, int seed = 0)
 		{
 
 			Field = field;
@@ -45,8 +45,9 @@ namespace GameMaster
 		public void LaunchGame()
 		{
 			isGameRunning = true;
-			gameThread = new(GameLoop);
 			DrawGame();			
+			gameThread = new(GameLoop);
+			gameThread.Start();
 		}
 
 		private void GameLoop()
@@ -56,7 +57,7 @@ namespace GameMaster
 				Thread.Sleep(RuleSet.RuleSet.moveTime);
 
 				threadHandler.ExecLocked(GamePattern);
-			}
+			}			
 		}
 
 		private void GamePattern()
@@ -94,7 +95,7 @@ namespace GameMaster
 
 		private void DrawGame()
 		{
-			ui.Draw(Snek, food!);
+		 	ui.Draw(Snek, food!);							
 		}
 
 		private void EndGame()

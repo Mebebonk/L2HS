@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IncapsulatedObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,31 @@ namespace WPFUserInterface
 	/// </summary>
 	public partial class WPFUI : Window
 	{
-		public WPFUI()
+		private readonly Action<Directions> callback;
+		public WPFUI(Action<Directions> callback)
 		{
 			InitializeComponent();
+			this.callback = callback;
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			callback(Directions.Top);
+		}
+
+		private void Button_Click_1(object sender, RoutedEventArgs e)
+		{
+			callback(Directions.Left);
+		}
+
+		private void Button_Click_2(object sender, RoutedEventArgs e)
+		{
+			callback(Directions.Bottom);
+		}
+
+		private void Button_Click_3(object sender, RoutedEventArgs e)
+		{
+			callback(Directions.Right);
 		}
 	}
 }

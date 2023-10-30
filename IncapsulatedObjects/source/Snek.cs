@@ -9,6 +9,7 @@ namespace IncapsulatedObjects
 	public class Snek : Validatable
 	{
 		public List<Coordinate> SnekBody { get; private set; }
+		private Directions direction;
 
 		private bool quedFood = false;
 		public Snek(Coordinate start)
@@ -19,6 +20,7 @@ namespace IncapsulatedObjects
 				start.GetAdjesant()[rnd.Next(start.GetAdjesant().Length)],
 				start
 			};
+			direction = DirectionConvertor.GetDirectionFromCoordinate(SnekBody[^1] - SnekBody[^2]);
 		}
 
 		public override bool IsValid()
@@ -28,20 +30,21 @@ namespace IncapsulatedObjects
 
 		public void Move(Directions direction)
 		{
+			Coordinate front = DirectionConvertor.GetCoordinateFromDirection(this.direction);
 			Coordinate target = DirectionConvertor.GetCoordinateFromDirection(direction);
-			Coordinate actual = SnekBody[^2] - SnekBody[^1];
-			if (target != actual * -1)
-			{
-				if (!quedFood) SnekBody.RemoveAt(0);
-				quedFood = false;
-				SnekBody.Add(SnekBody[^1] + target);
-			}
+			if (front * -1 != target) { this.direction = direction; }
+
+			if (!quedFood) SnekBody.RemoveAt(0);
+			quedFood = false;
+			SnekBody.Add(SnekBody[^1] - DirectionConvertor.GetCoordinateFromDirection(this.direction));
+
 
 		}
 
 		public void TeleportHead()
 		{
-			SnekBody[^1] = new Coordinate(RuleSet.RuleSet.maxWidth, RuleSet.RuleSet.maxHight) - (SnekBody[^1].GetAdjesant()[0] - SnekBody[^1]) * SnekBody[^2];
+			Coordinate tpDir = SnekBody[^1] - SnekBody[^1].GetAdjesant()[0];
+			SnekBody[^1] -= tpDir * new Coordinate(RuleSet.RuleSet.maxWidth, RuleSet.RuleSet.maxHight);
 		}
 
 		public void QueFood()
