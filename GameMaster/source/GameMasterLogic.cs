@@ -113,7 +113,7 @@ namespace GameMaster
 
 		private void ForcedGameEnd()
 		{
-			cancellationTokenSource.Cancel();
+			if (isGameRunning) { cancellationTokenSource.Cancel(); }
 		}
 	}
 }

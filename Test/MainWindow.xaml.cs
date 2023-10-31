@@ -29,7 +29,7 @@ namespace Test
 		{
 			Action cc;
 			WPFUserInterface.WPFUIAPI UI = new();
-			IncapsulatedObjects.Field field = new(new IncapsulatedObjects.Coordinate[] { new(1, 0), new(2, 0), new(2,1), new(2,2) });
+			IncapsulatedObjects.Field field = new(new IncapsulatedObjects.Coordinate[] { new(1, 0), new(2, 0), new(2,1), new(2,2) }, false);
 			GameMaster.GameMasterAPI gm = new(field, UI, UI, out cc);
 			UI.SetOwner(this);
 			UI.CreateUI(field, cc);

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WPFUserInterface"
         mc:Ignorable="d"
         Closing="Window_Closing"
-        Title="Game" SizeToContent="WidthAndHeight">
-    <StackPanel>
-        <Grid Name="mainGrid" Focusable="True" Background="Gray" KeyDown="Grid_KeyDown"/>        
-    </StackPanel>
+        Title="Game" SizeToContent="WidthAndHeight" KeyDown="Grid_KeyDown">
+    <Border x:Name="wrappBorder">
+        <Grid Name="mainGrid" Focusable="False" Background="Gray"/>        
+    </Border>
 </Window>

@@ -29,6 +29,11 @@ namespace WPFUserInterface.source
 			List<GameTile> list = new();
 			List<GameTile> lwalls = new();
 			InitStyles();
+			if (!field.AllowTP)
+			{
+				ui.wrappBorder.Style = wallStyle;
+				ui.wrappBorder.Padding = new(10);
+			}
 
 			for (int x = 0; x < RuleSet.RuleSet.maxWidth; x++)
 			{
@@ -37,9 +42,9 @@ namespace WPFUserInterface.source
 					GameTile a = new(ui.mainGrid, x, y, defaultStyle);
 					list.Add(a);
 					if (field.Walls.Contains(new Coordinate(x, y))) { lwalls.Add(a); a.SetStyle(wallStyle); }
-					ui.mainGrid.RowDefinitions.Add(new System.Windows.Controls.RowDefinition { Height = GridLength.Auto });
+					ui.mainGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 				}
-				ui.mainGrid.ColumnDefinitions.Add(new System.Windows.Controls.ColumnDefinition { Width = GridLength.Auto });
+				ui.mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 			}
 
 			tiles = list.ToArray();

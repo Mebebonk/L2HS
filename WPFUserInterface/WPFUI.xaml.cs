@@ -57,7 +57,7 @@ namespace WPFUserInterface
 		private void Grid_KeyDown(object sender, KeyEventArgs e)
 		{
 
-			if (sender is Grid source && keys.Contains(e.Key))
+			if (keys.Contains(e.Key))
 			{
 				callback(e.Key switch
 				{
