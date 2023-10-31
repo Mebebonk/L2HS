@@ -21,7 +21,7 @@ namespace WPFUserInterface
 	/// </summary>
 	public partial class WPFUI : Window
 	{
-		private Key[] keys = { Key.Left, Key.Right, Key.Up, Key.Down };	
+		private readonly Key[] keys = { Key.Left, Key.Right, Key.Up, Key.Down };	
 	
 
 		private readonly Action<Directions> callback;
