@@ -28,17 +28,18 @@ namespace IncapsulatedObjects
 			return SnekBody.Count > 1;
 		}
 
-		public void Move(Directions direction)
+		public void Move(Directions? direction)
 		{
-			Coordinate front = DirectionConvertor.GetCoordinateFromDirection(this.direction);
-			Coordinate target = DirectionConvertor.GetCoordinateFromDirection(direction);
-			if (front * -1 != target) { this.direction = direction; }
+			if (direction is not null)
+			{
+				Coordinate front = DirectionConvertor.GetCoordinateFromDirection(this.direction);
+				Coordinate target = DirectionConvertor.GetCoordinateFromDirection((Directions)direction);
+				if (front * -1 != target) { this.direction = (Directions)direction; }
+			}
 
 			if (!quedFood) { SnekBody.RemoveAt(0); }
 			quedFood = false;
 			SnekBody.Add(SnekBody[^1] - DirectionConvertor.GetCoordinateFromDirection(this.direction));
-
-
 		}
 
 		public void TeleportHead()

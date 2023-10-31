@@ -15,15 +15,16 @@ namespace WPFUserInterface
 	{
 		private WPFUIBack ui;
 		private Window newOwner;
-		private Directions direction = Directions.Top;
+		private Directions? direction;
+			
 
 		public void SetOwner(Window newOwner)
 		{
 			this.newOwner = newOwner;
 		}
-		public override void CreateUI(Field field)
+		public override void CreateUI(Field field, Action c)
 		{
-			ui = new(field, newOwner, SetCurrentDirection);
+			ui = new(field, newOwner, SetCurrentDirection, c);
 			ui.CreateUI();
 		}
 
@@ -32,17 +33,11 @@ namespace WPFUserInterface
 			Application.Current.Dispatcher.Invoke(new Action(() => ui.Draw(snek, food)));
 		}
 
-		public Directions GetCurrentDiredction()
-		{
-			return direction;
-		}
+		public Directions? GetCurrentDiredction() => direction;
 
 		public void SetCurrentDirection(Directions direction)
 		{
-
 			this.direction = direction;
-
-
 		}
 
 		protected override void DrawEndGame()
@@ -54,5 +49,6 @@ namespace WPFUserInterface
 		{
 			ui.UpdateScore(score);
 		}
+
 	}
 }

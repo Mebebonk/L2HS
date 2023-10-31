@@ -25,11 +25,13 @@ namespace WPFUserInterface
 	
 
 		private readonly Action<Directions> callback;
-		public WPFUI(Action<Directions> callback)
+		private readonly Action closeCallback;
+		public WPFUI(Action<Directions> callback, Action closeCallback)
 		{
 			InitializeComponent();
 			this.callback = callback;
 			inputGrid.Focus();
+			this.closeCallback = closeCallback;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
@@ -66,6 +68,11 @@ namespace WPFUserInterface
 					_ => throw new Exception($"no. {e.Key}")
 				});
 			}
+		}
+
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			closeCallback();
 		}
 	}
 }

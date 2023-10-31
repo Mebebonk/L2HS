@@ -27,12 +27,13 @@ namespace Test
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
+			Action cc;
 			WPFUserInterface.WPFUIAPI UI = new();
 			IncapsulatedObjects.Field field = new(new IncapsulatedObjects.Coordinate[] { new(1, 0), new(2, 0), new(2,1), new(2,2) });
+			GameMaster.GameMasterAPI gm = new(field, UI, UI, out cc);
 			UI.SetOwner(this);
-			UI.CreateUI(field);
+			UI.CreateUI(field, cc);
 
-			GameMaster.GameMasterAPI gm = new(field, UI, UI);
 			gm.StartGame();
 			
 		}

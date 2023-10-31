@@ -18,10 +18,8 @@ namespace WPFUserInterface
 		public FrameworkElement TileVisual { get; private set; }
 		public Coordinate Coordinate { get; private set; }
 
-		private Style defaultStyle, wallStyle, snekStyle, foodStyle;
 
-
-		public GameTile(Grid grid, int x, int y, TileStyles style = TileStyles.None, int size = 20)
+		public GameTile(Grid grid, int x, int y, Style style, int size = 20)
 		{
 			TileVisual = new Border
 			{
@@ -34,45 +32,14 @@ namespace WPFUserInterface
 			grid.Children.Add(TileVisual);
 			Grid.SetColumn(TileVisual, x);
 			Grid.SetRow(TileVisual, y);
-			InitStyles();
-			SetStyle(style);
-
-
+			TileVisual.Style = style;
 
 		}
-		public void SetStyle(TileStyles style)
+		public void SetStyle(Style style)
 		{
 
-			TileVisual.Style = style switch
-			{
-				TileStyles.None => defaultStyle,
-				TileStyles.Wall => wallStyle,
-				TileStyles.Snake => snekStyle,
-				TileStyles.Food => foodStyle,
-				_ => throw new Exception("Invalid style")
-			};
+			TileVisual.Style = style;
 
 		}
-
-		private void InitStyles()
-		{
-			defaultStyle = new();
-			wallStyle = new();
-			snekStyle = new();
-			foodStyle = new();
-			
-			defaultStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.White) });
-			wallStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Black) });
-			snekStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Green) });
-			foodStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Red) });
-		}
-	}
-
-	internal enum TileStyles
-	{
-		None = 0,
-		Wall = 1,
-		Snake = 2,
-		Food = 3
 	}
 }

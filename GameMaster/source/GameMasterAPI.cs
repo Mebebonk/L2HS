@@ -8,9 +8,9 @@ namespace GameMaster
 	public class GameMasterAPI
 	{
 		private readonly GameMasterLogic GameMaster;
-		public GameMasterAPI(Field field, IInputHandlerBase inputs, UIAPIBase ui, int seed = 0, bool handleScore = true) 
+		public GameMasterAPI(Field field, IInputHandlerBase inputs, UIAPIBase ui, out Action closeCallback, int seed = 0, bool handleScore = true) 
 		{
-			GameMaster = new(field, inputs, ui, seed, handleScore);
+			GameMaster = new(field, inputs, ui, out closeCallback, seed, handleScore);
 		}
 
 		public void StartGame()
