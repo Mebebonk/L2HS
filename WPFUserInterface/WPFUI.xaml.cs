@@ -30,7 +30,7 @@ namespace WPFUserInterface
 		{
 			InitializeComponent();
 			this.callback = callback;
-			inputGrid.Focus();
+			mainGrid.Focus();
 			this.closeCallback = closeCallback;
 		}
 

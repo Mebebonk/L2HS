@@ -17,7 +17,7 @@ namespace WPFUserInterface.source
 		private readonly GameTile[] tiles;
 		private readonly GameTile[] walls;
 
-		private Style defaultStyle, wallStyle, snekStyle, foodStyle;
+		private Style defaultStyle, wallStyle, snekStyle, snekHeadStyle, foodStyle;
 		private int score = 0;
 
 		internal WPFUIBack(Field field, Window newOwner, Action<Directions> callback, Action closeCallback)
@@ -44,7 +44,7 @@ namespace WPFUserInterface.source
 
 			tiles = list.ToArray();
 			walls = lwalls.ToArray();
-						
+
 		}
 
 		internal void CreateUI()
@@ -58,13 +58,14 @@ namespace WPFUserInterface.source
 				if (!walls.Contains(tile)) { tile.SetStyle(defaultStyle); }
 				if (tile.Coordinate == food.Location) { tile.SetStyle(foodStyle); }
 				if (snek.SnekBody.Contains(tile.Coordinate)) { tile.SetStyle(snekStyle); }
+				if (tile.Coordinate == snek.SnekBody[^1]) { tile.SetStyle(snekHeadStyle); }
 			}
 		}
 
 		internal void DrawScore()
 		{
 			string message = score == 0 ? "Game over!" : $"Game over!\nScore: {score}";
-			MessageBox.Show(message,"Game over", MessageBoxButton.OK);			
+			MessageBox.Show(message, "Game over", MessageBoxButton.OK);
 		}
 
 		internal void UpdateScore(int score)
@@ -76,11 +77,13 @@ namespace WPFUserInterface.source
 			defaultStyle = new();
 			wallStyle = new();
 			snekStyle = new();
+			snekHeadStyle = new();
 			foodStyle = new();
 
 			defaultStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.White) });
 			wallStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Black) });
-			snekStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Green) });
+			snekStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.LightGreen) });
+			snekHeadStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Green) });
 			foodStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Red) });
 		}
 	}
