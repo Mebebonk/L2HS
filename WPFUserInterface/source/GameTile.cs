@@ -26,7 +26,7 @@ namespace WPFUserInterface
 				Width = size,
 				Height = size,
 				Focusable = false,
-				Margin = new Thickness(1)
+				Margin = new Thickness(0.5)
 			};
 
 			Coordinate = new(x, y);

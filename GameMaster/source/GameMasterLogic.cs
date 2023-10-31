@@ -16,7 +16,7 @@ namespace GameMaster
 		private bool isGameRunning = false;
 
 		Thread? gameThread;
-		CancellationTokenSource cancellationTokenSource;
+		private readonly CancellationTokenSource cancellationTokenSource;
 
 		private readonly Field Field;
 		private readonly Snek Snek;
