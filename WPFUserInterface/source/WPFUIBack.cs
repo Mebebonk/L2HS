@@ -31,8 +31,7 @@ namespace WPFUserInterface.source
 			InitStyles();
 			if (!field.AllowTP)
 			{
-				ui.wrappBorder.Style = wallStyle;
-				ui.wrappBorder.Padding = new(10);
+				ui.wrappBorder.Style = wallStyle;				
 			}
 
 			for (int x = 0; x < RuleSet.RuleSet.maxWidth; x++)

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         Title="Game" SizeToContent="WidthAndHeight" KeyDown="Grid_KeyDown">
-    <Border x:Name="wrappBorder">
-        <Grid Name="mainGrid" Focusable="False" Background="Gray"/>        
+    <Border x:Name="wrappBorder" Padding="5" Margin="5">
+        <Grid Name="mainGrid" Focusable="False" Background="Gray" />        
     </Border>
 </Window>
