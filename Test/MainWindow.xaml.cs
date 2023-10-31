@@ -34,6 +34,7 @@ namespace Test
 
 			GameMaster.GameMasterAPI gm = new(field, UI, UI);
 			gm.StartGame();
+			
 		}
 	}
 }

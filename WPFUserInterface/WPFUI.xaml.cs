@@ -63,7 +63,7 @@ namespace WPFUserInterface
 					Key.Right => Directions.Right,
 					Key.Up => Directions.Top,
 					Key.Down => Directions.Bottom,
-					_ => throw new Exception("no.")
+					_ => throw new Exception($"no. {e.Key}")
 				});
 			}
 		}

@@ -47,12 +47,12 @@ namespace WPFUserInterface
 
 		protected override void DrawEndGame()
 		{
-			throw new NotImplementedException();
+			ui.DrawScore();
 		}
 
 		protected override void DrawScore(int score)
 		{
-			throw new NotImplementedException();
+			ui.UpdateScore(score);
 		}
 	}
 }

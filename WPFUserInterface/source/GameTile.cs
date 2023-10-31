@@ -60,7 +60,7 @@ namespace WPFUserInterface
 			wallStyle = new();
 			snekStyle = new();
 			foodStyle = new();
-
+			
 			defaultStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.White) });
 			wallStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Black) });
 			snekStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = new SolidColorBrush(Colors.Green) });

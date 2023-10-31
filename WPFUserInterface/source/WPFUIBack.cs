@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +15,8 @@ namespace WPFUserInterface.source
 
 		private readonly GameTile[] tiles;
 		private readonly GameTile[] walls;
+
+		private int score = 0;
 
 		internal WPFUIBack(Field field, Window newOwner, Action<Directions> callback)
 		{
@@ -54,6 +57,18 @@ namespace WPFUserInterface.source
 				if (snek.SnekBody.Contains(tile.Coordinate)) { tile.SetStyle(TileStyles.Snake); }
 			}
 		}
+
+		internal void DrawScore()
+		{
+			string message = score == 0 ? "Game over!" : $"Game over!\nScore: {score}";
+			MessageBox.Show(message,"Game over", MessageBoxButton.OK);			
+		}
+
+		internal void UpdateScore(int score)
+		{
+			this.score = score;
+		}
+
 	}
 }
 

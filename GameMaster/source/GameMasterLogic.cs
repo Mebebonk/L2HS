@@ -12,27 +12,27 @@ namespace GameMaster
 {
 	internal class GameMasterLogic
 	{
-		private readonly Field Field;
-		private readonly Snek Snek;
 		private Food? food;
 		private bool isGameRunning = false;
 		Thread? gameThread;
-		private readonly ThreadHandlerAPI threadHandler;
 
+		private readonly Field Field;
+		private readonly Snek Snek;		
+		private readonly bool handleScore;
 		private readonly Random random;
 		private readonly IInputHandlerBase inputHandler;
 		private readonly UIAPIBase ui;
 
 
-		public GameMasterLogic(Field field, IInputHandlerBase inputs, UIAPIBase uIAPI, int seed = 0)
+		public GameMasterLogic(Field field, IInputHandlerBase inputs, UIAPIBase uIAPI, int seed, bool handleScore)
 		{
 
 			Field = field;
 			random = seed == 0 ? new Random(DateTime.Now.Millisecond) : new Random(seed);
 			Snek = new(Field.SafeCoordinates[random.Next(Field.SafeCoordinates.Length)]);
 			inputHandler = inputs;
-			ui = uIAPI;
-			threadHandler = new();
+			ui = uIAPI;			
+			this.handleScore = handleScore;
 
 			foreach (Coordinate snekPart in Snek.SnekBody)
 			{
@@ -45,7 +45,7 @@ namespace GameMaster
 		public void LaunchGame()
 		{
 			isGameRunning = true;
-			DrawGame();			
+			DrawGame();
 			gameThread = new(GameLoop);
 			gameThread.Start();
 		}
@@ -55,9 +55,9 @@ namespace GameMaster
 			while (isGameRunning)
 			{
 				Thread.Sleep(RuleSet.RuleSet.moveTime);
-								
+
 				GamePattern();
-			}			
+			}
 		}
 
 		private void GamePattern()
@@ -95,13 +95,13 @@ namespace GameMaster
 
 		private void DrawGame()
 		{
-		 	ui.Draw(Snek, food!);							
+			ui.Draw(Snek, food!);
 		}
 
 		private void EndGame()
 		{
 			isGameRunning = false;
-			ui.RollCredits();
+			ui.RollCredits(handleScore ? Snek.SnekBody.Count - 2 : -1);
 		}
 
 	}

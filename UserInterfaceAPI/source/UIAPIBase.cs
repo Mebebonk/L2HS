@@ -10,8 +10,8 @@ namespace UserInterfaceAPI
 
 		public void RollCredits(int score = -1)
 		{
-			DrawEndGame();
 			if (score != -1) { DrawScore(score); }
+			DrawEndGame();
 		}
 
 		abstract protected void DrawEndGame();
