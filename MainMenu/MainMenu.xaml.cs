@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFUserInterface;
 
 namespace MainMenu
 {
@@ -27,12 +28,12 @@ namespace MainMenu
 		public MainWindow()
 		{
 			InitializeComponent();
-			MainMenuBack.LoadAndViewFields(ref mapList);
+			MainMenuBack.LoadAndViewFields(ref mapList);			
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-
+			MainMenuBack.StartGame(this, (mapList.SelectedItem as FieldListViewItem).FieldName);
 		}
 	}
 }
