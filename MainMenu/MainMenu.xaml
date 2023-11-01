@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="mapList" Margin="2" ItemsSource="{DynamicResource ResourceKey=fieldListViewItems}">
+        <ListView x:Name="mapList" Margin="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=FieldName}" >Name</GridViewColumn>

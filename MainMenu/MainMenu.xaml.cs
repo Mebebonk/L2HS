@@ -1,6 +1,8 @@
-﻿using IncapsulatedObjects;
+﻿using FieldManager;
+using IncapsulatedObjects;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,16 +24,16 @@ namespace MainMenu
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private FieldListViewItem[] fieldListViewItems;
 		public MainWindow()
 		{
-			InitializeComponent();
-			List<FieldListViewItem> fields = new();
+			InitializeComponent();			
+			List<FieldListViewItem> list = new();
 			foreach (string file in Directory.EnumerateFiles($"..\\Maps", "*.json"))
 			{
-				fields.Add(new FieldListViewItem(FieldLoader.LoadField(file), file));
+				list.Add(new FieldListViewItem(FieldLoader.LoadField(file), file));
 			}
-			fieldListViewItems = fields.ToArray();
+			mapList.ItemsSource = list;
+
 		}
 	}
 }
