@@ -20,6 +20,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.Row ="1" Content="Start" Padding="4,2" HorizontalAlignment="Right" Margin="2"/>
+        <Button Grid.Row ="1" Content="Start" Padding="4,2" HorizontalAlignment="Right" Margin="2" Click="Button_Click"/>
     </Grid>
 </Window>

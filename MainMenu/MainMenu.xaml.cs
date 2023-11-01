@@ -26,13 +26,12 @@ namespace MainMenu
 	{
 		public MainWindow()
 		{
-			InitializeComponent();			
-			List<FieldListViewItem> list = new();
-			foreach (string file in Directory.EnumerateFiles($"..\\Maps", "*.json"))
-			{
-				list.Add(new FieldListViewItem(FieldLoader.LoadField(file), file));
-			}
-			mapList.ItemsSource = list;
+			InitializeComponent();
+			MainMenuBack.LoadAndViewFields(ref mapList);
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
 
 		}
 	}
