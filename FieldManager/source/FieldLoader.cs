@@ -11,7 +11,7 @@ namespace IncapsulatedObjects
 	{
 		static public Field? LoadField(string fileName)
 		{					
-			using FileStream file = File.OpenRead($"..\\Maps\\{fileName}.json");
+			using FileStream file = File.OpenRead($"{fileName}");
 			using StreamReader reader = new(file);
 
 			return JsonSerializer.Deserialize<Field>(file);

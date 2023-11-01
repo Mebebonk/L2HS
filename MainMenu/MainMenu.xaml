@@ -1,0 +1,25 @@
+﻿<Window x:Class="MainMenu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainMenu"
+        mc:Ignorable="d"
+        Title="Snek menu" SizeToContent="WidthAndHeight">
+    <Grid Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="mapList" Margin="2" ItemsSource="{DynamicResource ResourceKey=fieldListViewItems}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=FieldName}" >Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=WallCount}" >Wall count</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=AllowTP}" >Is tp allowed</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row ="1" Content="Start" Padding="4,2" HorizontalAlignment="Right" Margin="2"/>
+    </Grid>
+</Window>
