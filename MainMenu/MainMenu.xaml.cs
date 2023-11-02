@@ -31,9 +31,14 @@ namespace MainMenu
 			MainMenuBack.LoadAndViewFields(ref mapList);			
 		}
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		private void StartGameButton(object sender, RoutedEventArgs e)
 		{
 			MainMenuBack.StartGame(this, (mapList.SelectedItem as FieldListViewItem).FieldName);
+		}
+
+		private void OpenLevelEditor(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }
