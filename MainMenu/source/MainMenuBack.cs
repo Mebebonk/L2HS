@@ -37,5 +37,11 @@ namespace MainMenu
 
 			gm.StartGame();
 		}
+
+		static public void OpenLevelEditor()
+		{
+			LevelEditor.LevelEditorWindow levelEditor = new();
+			levelEditor.Show();
+		}
 	}
 }

@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FieldManager\FieldManager.csproj" />
     <ProjectReference Include="..\GameMaster\GameMaster.csproj" />
+    <ProjectReference Include="..\LevelEditor\LevelEditor.csproj" />
     <ProjectReference Include="..\WPFUserInterface\WPFUserInterface.csproj" />
   </ItemGroup>
 </Project>

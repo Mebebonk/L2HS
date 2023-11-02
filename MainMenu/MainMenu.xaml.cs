@@ -24,11 +24,12 @@ namespace MainMenu
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
-	{
+	{		
 		public MainWindow()
 		{
 			InitializeComponent();
-			MainMenuBack.LoadAndViewFields(ref mapList);			
+			MainMenuBack.LoadAndViewFields(ref mapList);
+			
 		}
 
 		private void StartGameButton(object sender, RoutedEventArgs e)
@@ -38,7 +39,7 @@ namespace MainMenu
 
 		private void OpenLevelEditor(object sender, RoutedEventArgs e)
 		{
-
+			
 		}
 	}
 }
