@@ -95,7 +95,7 @@ namespace GameMaster
 			List<Coordinate> temp = new(Field.SafeCoordinates);
 
 			foreach (Coordinate snekPart in Snek.SnekBody) { temp.Remove(snekPart); }
-
+			if (temp.Count == 0) { EndGame(); return; }
 			food = new(temp[random.Next(temp.Count)]);
 		}
 
