@@ -60,9 +60,9 @@ namespace WPFUserInterface.source
 			foreach (var tile in tiles)
 			{
 				if (!walls.Contains(tile)) { tile.SetStyle(defaultStyle); }
-				if (tile.Coordinate == food.Location) { tile.SetStyle(foodStyle); }
-				if (snek.SnekBody.Contains(tile.Coordinate)) { tile.SetStyle(snekStyle); }
-				if (tile.Coordinate == snek.SnekBody[^1]) { tile.SetStyle(snekHeadStyle); }
+				if (tile.Location == food.Location) { tile.SetStyle(foodStyle); }
+				if (snek.SnekBody.Contains(tile.Location)) { tile.SetStyle(snekStyle); }
+				if (tile.Location == snek.SnekBody[^1]) { tile.SetStyle(snekHeadStyle); }
 			}
 		}
 
