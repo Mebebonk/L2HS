@@ -45,7 +45,7 @@ namespace IncapsulatedObjects
 		public void TeleportHead()
 		{
 			Coordinate tpDir = SnekBody[^1] - SnekBody[^1].GetAdjesant()[0];
-			SnekBody[^1] -= tpDir * new Coordinate(RuleSet.RuleSet.maxWidth, RuleSet.RuleSet.maxHight);
+			SnekBody[^1] -= tpDir * new Coordinate(RuleSet.RuleSet.maxWidth, RuleSet.RuleSet.maxHeight);
 		}
 
 		public void QueFood()

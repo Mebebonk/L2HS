@@ -39,7 +39,7 @@ namespace MainMenu
 
 		private void OpenLevelEditor(object sender, RoutedEventArgs e)
 		{
-			
+			MainMenuBack.OpenLevelEditor();
 		}
 	}
 }

@@ -31,7 +31,7 @@ namespace IncapsulatedObjects
 			List<Coordinate> spawnableCoordinates = new();
 			for (int x = 0; RuleSet.RuleSet.maxWidth > x; x++)
 			{
-				for (int y = 0; RuleSet.RuleSet.maxHight > y; y++)
+				for (int y = 0; RuleSet.RuleSet.maxHeight > y; y++)
 				{
 					spawnableCoordinates.Add(new Coordinate(x, y));
 				}

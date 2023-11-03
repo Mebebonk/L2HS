@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LevelEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-       
+        Title="MainWindow" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Grid Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="wrappBorder" Padding="5" Margin="5" Grid.ColumnSpan="2">
+            <Grid x:Name="tileGrid" Background="Gray"/>
+        </Border>
+        <Button Content="Load level" Grid.Row="2" Grid.Column="0" Margin="2" Padding="4,2" Click="LoadLevel" HorizontalAlignment="Left"/>
+        <Button Content="Save level" Grid.Row="2" Grid.Column="1" Margin="2" Padding="4,2" Click="SaveLevel" HorizontalAlignment="Right"/>
+        <Button Content="Wipe level" Grid.Row="1" Grid.Column="1" Margin="2" Padding="4,2" Click="WipeLevel" HorizontalAlignment="Right"/>
+        <CheckBox x:Name="allowTpCheck" Content="Allow tp" Grid.Row="1" Margin="2" Padding="4,2" HorizontalAlignment="Left" VerticalAlignment="Center"  Checked="CheckSwap" Unchecked="CheckSwap"/>
     </Grid>
 </Window>

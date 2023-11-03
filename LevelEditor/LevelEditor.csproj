@@ -11,6 +11,7 @@
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FieldManager\FieldManager.csproj" />
     <ProjectReference Include="..\IncapsulatedObjects\IncapsulatedObjects.csproj" />
   </ItemGroup>
 </Project>

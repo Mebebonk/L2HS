@@ -33,15 +33,18 @@ namespace WPFUserInterface.source
 			{
 				ui.wrappBorder.Style = wallStyle;				
 			}
+			for (int i = 0; i < RuleSet.RuleSet.maxHeight; i++)
+			{
+				ui.mainGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+			}
 
 			for (int x = 0; x < RuleSet.RuleSet.maxWidth; x++)
 			{
-				for (int y = 0; y < RuleSet.RuleSet.maxHight; y++)
+				for (int y = 0; y < RuleSet.RuleSet.maxHeight; y++)
 				{
 					GameTile a = new(ui.mainGrid, x, y, defaultStyle);
 					list.Add(a);
 					if (field.Walls.Contains(new Coordinate(x, y))) { lwalls.Add(a); a.SetStyle(wallStyle); }
-					ui.mainGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 				}
 				ui.mainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 			}

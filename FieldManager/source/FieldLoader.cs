@@ -10,11 +10,18 @@ namespace IncapsulatedObjects
 	static public class FieldLoader
 	{
 		static public Field? LoadField(string fileName)
-		{					
-			using FileStream file = File.OpenRead($"{fileName}");
-			using StreamReader reader = new(file);
+		{
+			try
+			{
+				using FileStream file = File.OpenRead($"{fileName}");
+				using StreamReader reader = new(file);
 
-			return JsonSerializer.Deserialize<Field>(file);
+				return JsonSerializer.Deserialize<Field>(file);
+			}
+			catch
+			{
+				return null;
+			}
 		}
 	}
 }
